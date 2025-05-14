@@ -1,0 +1,44 @@
+.ring-container {
+  position: relative;
+}
+
+.circle {
+  width: 24px;
+  height: 24px;
+  background-color: #ffb128;
+  border-radius: 50%;
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  .plus{
+    position: absolute;
+    color: #FFFFFF;
+    top: 4px;
+    right: 8px;
+  }
+}
+
+.ringring {
+  border: 3px solid #ffffff62;
+  border-radius: 70px;
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0;
+
+}
+@keyframes pulsate {
+  0% {
+    transform: scale(0.1, 0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2, 1.2);
+    opacity: 0;
+  }
+}
