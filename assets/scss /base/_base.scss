@@ -1,3 +1,6 @@
+@use "../abstracts/" as *;
+@use "../utilities/" as *;
+
 /*general classes start*/
 .container {
   max-width: 1240px;
@@ -23,10 +26,10 @@
   justify-content: space-evenly;
 }
 .bg-color {
-  background-color: #f5f5f5;
+  background-color: $colorwhite;
 }
 .bg-yellow {
-  background-color: #ffb128;
+  background-color: $coloryellow;
 }
 .aline-items-c {
   align-items: center;
@@ -39,7 +42,7 @@
 
 header {
   .header-inner-wrapper {
-    display: flex;
+    @include flex;
     gap: 40px;
     padding-block: 24px;
     .logo {
@@ -71,18 +74,19 @@ header {
     ul {
       gap: 8px;
       li {
-        color: #0b3954;
+        color: $colorBlue;
+
         font-size: 14px;
         font-weight: 500;
-        border-right: 1px solid #f5f5f5;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        border-right: 1px solid $colorwhite;
+        @include flex;
+        @include flex-dir-clm;
+        @include aline-items-c;
         gap: 4px;
       }
       li:last-child {
         padding: 15px 63px;
-        color: #f5f5f5;
+        color: $colorwhite;
         border-radius: 3px 3px 0 0;
       }
     }
@@ -91,7 +95,7 @@ header {
 
 .title-wrapper {
   position: absolute;
-  color: #f5f5f5;
+  color: $colorWhite;
   top: 52px;
   left: 50px;
   span {
@@ -114,14 +118,32 @@ header {
       padding: 11px 30px;
       border-radius: 45px;
       border: none;
-      background-color: #ffb128;
-      color: #f5f5f5;
+      background-color: $coloryellow;
+      color: $colorwhite;
     }
     :last-child {
-      background-color: #f5f5f5;
-      color: #ffb128;
+      background-color: $colorWhite;
+      color: $coloryellow;
     }
   }
+  // არ დამისრულებია
+  .animated-btn {
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .animated-btn:active {
+    transform: scale(0.95);
+  }
+
+  // აქამდე
 }
 .main-section {
   background-color: rgb(0, 0, 0);
@@ -129,7 +151,8 @@ header {
   .principal-bg {
     width: 100%;
     height: 100%px;
-    background-color: #0b3954;
+    color: $colorblue;
+
     transform: translateY(30px);
     border-radius: 20px;
 
@@ -165,7 +188,7 @@ header {
   margin-block: 100px;
   .product-statistic {
     p {
-      color: #0b3954;
+      color: $colorBlue;
       margin-bottom: 20px;
       font-size: 12px;
       font-weight: 600;
@@ -173,14 +196,14 @@ header {
     span {
       font-size: 48px;
       font-weight: 600;
-      color: #ffb128;
+      color: $coloryellow;
       display: inline-block;
       margin-bottom: 5px;
     }
     h2 {
       font-size: 48px;
       font-weight: 700;
-      color: #0b3954;
+      color: $colorBlue;
     }
   }
 }
@@ -192,13 +215,14 @@ header {
     position: relative;
     top: 50%;
     margin-right: 40px;
-    color: #0b3954;
+    color: $colorblue;
+
     font-size: 24px;
     font-weight: 700;
     ::before {
       content: "";
       position: absolute;
-      background: #ffb128;
+      background: $coloryellow;
       width: 22px;
       height: 7px;
       top: 50%;
@@ -215,14 +239,14 @@ header {
       border-radius: 32px;
       gap: 30px;
       padding: 30px 50px;
-      background-color: #f9f9f9;
-      color: #0b3954;
+      background-color: $bgColor;
+      color: $colorBlue;
       font-size: 20px;
       font-weight: 600;
     }
   }
   :hover {
-    background-color: #f0f0f0;
+    background-color: $colorWhiteBg;
     transform: scale(1.03);
     transition: all 0.3s ease;
     border-radius: 6px;
@@ -231,7 +255,7 @@ header {
 }
 
 .main-category {
-  color: #f5f5f5;
+  color: $colorWhite;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -260,7 +284,7 @@ header {
   background-image: url(../img/kitchen.png);
 }
 .rect {
-  background: #ffb128;
+  background: $coloryellow;
   width: 22px;
   height: 7px;
 }
@@ -272,14 +296,14 @@ header {
     span {
       font-size: 12px;
       font-weight: 600;
-      color: #0b3954;
+      color: $colorBlue;
       margin-bottom: 20px;
       display: inline-block;
     }
     h4 {
       font-size: 48px;
       font-weight: 700;
-      color: #0b3954;
+      color: $colorBlue;
 
       margin-bottom: 30px;
     }
@@ -293,8 +317,8 @@ header {
       font-size: 14px;
       font-weight: 600;
       padding: 15px 35px;
-      background: #ffb128;
-      color: #f5f5f5;
+      background: $coloryellow;
+      color: $colorwhite;
       border: none;
       border-radius: 80px;
     }

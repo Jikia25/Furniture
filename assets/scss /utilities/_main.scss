@@ -1,0 +1,37 @@
+
+@mixin container {
+    max-width: 1240px;
+    margin-inline: auto;
+    width: 90%;
+  }
+   @mixin flex {
+    display: flex;
+  }
+  @mixin flex-dir-clm {
+    flex-direction: column;
+  }
+  @mixin justify-csb {
+    justify-content: space-between;
+  }
+  @mixin justify-csa {
+    justify-content: space-around;
+  }
+  @mixin justify-cc {
+    justify-content: center;
+  }
+  @mixin justify-se {
+    justify-content: space-evenly;
+  }
+  @mixin bg-color {
+    background-color: #f5f5f5;
+  }
+  @mixin bg-yellow {
+    background-color: #ffb128;
+  }
+  @mixin aline-items-c {
+    align-items: center;
+  }
+  @mixin aline-items-fa {
+    align-items: flex-end;
+  }
+    
