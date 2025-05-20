@@ -1,4 +1,4 @@
-@use "../abstracts/" as *;
+// @use "../abstracts/" as *;
 @use "../utilities/" as *;
 
 /*general classes start*/
@@ -37,6 +37,12 @@
 .aline-items-fa {
   align-items: flex-end;
 }
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
 
 /*general classes end*/
 
@@ -62,13 +68,36 @@ header {
         width: 90%;
       }
     }
-    .cta-wrapper {
-      gap: 15px;
-      img {
+  }
+  .cta-wrapper {
+    position: absolute;
+    gap: 25px;
+    .icon-with-badge {
+      position: relative;
+      width: 20px;
+      .badge {
+        font-size: 12px;
+        height: 25px;
         width: 20px;
+        background-color: #333333;
+        color: aliceblue;
+        border-radius: 50%;
+        display: inline-block;
+        text-align: center;
+        align-content: center;
+        position: absolute;
+        top: 0;
+        right: -6px;
+        height: 20px;
       }
     }
+    .icon-with-badge img {
+      display: block;
+      width: 100%;
+      height: 20px;
+    }
   }
+
   nav {
     text-transform: capitalize;
     ul {
@@ -146,7 +175,7 @@ header {
   // აქამდე
 }
 .main-section {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(0 0 0 0);
   height: 774px;
   .principal-bg {
     width: 100%;
@@ -303,15 +332,14 @@ header {
     h4 {
       font-size: 48px;
       font-weight: 700;
-      color: $colorBlue;
-
       margin-bottom: 30px;
+      color: $colorBlue;
     }
     p {
       font-size: 16px;
       font-weight: 600;
       margin-bottom: 30px;
-      color: #5c676d;
+      color: rgba(255, 255, 255, 0.1);
     }
     button {
       font-size: 14px;
