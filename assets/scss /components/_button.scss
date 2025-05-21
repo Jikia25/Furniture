@@ -1,0 +1,36 @@
+@use "../abstracts/variables" as *;
+.button-wrapper {
+  gap: 28px;
+  .animated-btn {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 30px;
+    border-radius: 45px;
+    border: none;
+    background-color: $coloryellow;
+    color: $colorWhite;
+    transition-duration: 0.1s;
+    cursor: pointer;
+    &:hover {
+      background-color: $colorWhite;
+      color: $coloryellow;
+      transform: scale(1.03);
+    }
+  }
+  .see-collection {
+    background-color: $colorWhite;
+    color: $coloryellow;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 30px;
+    border-radius: 45px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    &:hover {
+      background-color: $coloryellow;
+      color: $colorWhite;
+      transform: scale(1.03);
+    }
+  }
+}

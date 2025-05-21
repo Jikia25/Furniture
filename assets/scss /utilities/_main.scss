@@ -42,3 +42,22 @@
 @mixin inline-blk {
   display: inline-block;
 }
+@mixin position_fixed {
+  position: fixed;
+}
+@mixin text-al-c {
+  text-align: center;
+}
+@mixin alin-self {
+  align-self: center;
+}
+@mixin hidden{
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+@mixin visible {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+}

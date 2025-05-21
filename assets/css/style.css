@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.2 | 20191019
    License: none (public domain)
@@ -174,14 +173,6 @@ table {
   justify-content: space-evenly;
 }
 
-.bg-color {
-  background-color: #f5f5f5;
-}
-
-.bg-yellow {
-  background-color: #ffb128;
-}
-
 .aline-items-c {
   align-items: center;
 }
@@ -196,6 +187,14 @@ table {
 
 .absolute {
   position: absolute;
+}
+
+.bg-color {
+  background-color: #f5f5f5;
+}
+
+.bg-yellow {
+  background-color: #ffb128;
 }
 
 /*general classes end*/
@@ -259,12 +258,31 @@ header nav ul li {
   font-weight: 500;
   border-right: 1px solid #f5f5f5;
   gap: 10px;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 header nav ul li span {
   padding: 5px;
+}
+header nav ul li .drop-down-wrapper {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 87px;
+  width: 300px;
+  height: 200px;
+  background-color: red;
+  z-index: 15;
+  transition-duration: 0.3s;
+}
+header nav ul li:hover .drop-down-wrapper {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
 }
 header nav ul li:last-child {
   padding: 15px 63px;
@@ -288,43 +306,6 @@ header nav ul li:last-child {
   font-size: 64px;
   font-weight: 700;
   margin-bottom: 36px;
-}
-.title-wrapper .button-wrapper {
-  gap: 28px;
-}
-.title-wrapper .button-wrapper .animated-btn {
-  font-size: 14px;
-  font-weight: 600;
-  padding: 11px 30px;
-  border-radius: 45px;
-  border: none;
-  background-color: #ffb128;
-  color: #f5f5f5;
-}
-.title-wrapper .button-wrapper :hover {
-  background-color: #f5f5f5;
-  color: #ffb128;
-  transform: scale(1.03);
-  transition: all 0.1s ease;
-  border-radius: 45px;
-  cursor: pointer;
-}
-.title-wrapper .button-wrapper .see-collection {
-  background-color: #f5f5f5;
-  color: #ffb128;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 11px 30px;
-  border-radius: 45px;
-  border: none;
-}
-.title-wrapper .button-wrapper :hover {
-  background-color: #ffb128;
-  color: #f5f5f5;
-  transform: scale(1.03);
-  transition: all 0.2s ease;
-  border-radius: 45px;
-  cursor: pointer;
 }
 
 .main-section {
@@ -513,71 +494,6 @@ header nav ul li:last-child {
   border-radius: 80px;
 }
 
-body {
-  height: 2000px; /* რომ გვქონდეს სქროლვის მაგალითი */
-  margin: 0;
-  font-family: sans-serif;
-}
-
-.sticky-wrapper {
-  position: fixed;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 1000;
-}
-
-.sticky-box {
-  background-color: #1a73e8;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-}
-
-body {
-  height: 2000px;
-  margin: 0;
-  font-family: sans-serif;
-}
-
-.sticky-wrapper {
-  position: fixed;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 1000;
-}
-
-.sticky-box {
-  height: 65px;
-  width: 65px;
-  background-color: #80b541;
-  color: white;
-  border-radius: 8px;
-  text-align: center;
-  cursor: pointer;
-  opacity: 2;
-  transition: opacity 1s ease-in-out;
-}
-.sticky-box a img {
-  height: 26px;
-  width: 27px;
-}
-.sticky-box .text {
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 300;
-}
-
 .ring-container {
   position: relative;
   cursor: pointer;
@@ -623,4 +539,91 @@ body {
     transform: scale(1.2, 1.2);
     opacity: 0;
   }
+}
+.button-wrapper {
+  gap: 28px;
+}
+.button-wrapper .animated-btn {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 30px;
+  border-radius: 45px;
+  border: none;
+  background-color: #ffb128;
+  color: #f5f5f5;
+  transition-duration: 0.1s;
+  cursor: pointer;
+}
+.button-wrapper .animated-btn:hover {
+  background-color: #f5f5f5;
+  color: #ffb128;
+  transform: scale(1.03);
+}
+.button-wrapper .see-collection {
+  background-color: #f5f5f5;
+  color: #ffb128;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 30px;
+  border-radius: 45px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.button-wrapper .see-collection:hover {
+  background-color: #ffb128;
+  color: #f5f5f5;
+  transform: scale(1.03);
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+body .sticky-wrapper {
+  position: fixed;
+  right: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+body .sticky-wrapper .blinking {
+  top: 10px;
+  height: 65px;
+  width: 65px;
+  color: #f5f5f5;
+  background-color: rgb(23, 22, 22);
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+}
+body .sticky-wrapper .blinking .blinking-js {
+  align-self: center;
+}
+body .sticky-wrapper .sticky-box {
+  height: 65px;
+  width: 65px;
+  background-color: #80b541;
+  color: #f5f5f5;
+  text-align: center;
+  cursor: pointer;
+  opacity: 2;
+  transition: opacity 1s ease-in-out;
+}
+body .sticky-wrapper .sticky-box span {
+  animation: demoflash 4s ease infinite;
+}
+body .sticky-wrapper .sticky-box a img {
+  height: 26px;
+  width: 27px;
+}
+body .sticky-wrapper .sticky-box .text {
+  display: flex;
+  align-self: center;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 300;
 }/*# sourceMappingURL=style.css.map */

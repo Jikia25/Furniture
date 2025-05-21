@@ -1,0 +1,53 @@
+@use "../abstracts/variables" as *;
+@use "../utilities/main" as *;
+body {
+  margin: 0;
+  font-family: sans-serif;
+  .sticky-wrapper {
+    @include position_fixed;
+    right: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    @include flex;
+    @include flex-dir-clm;
+    gap: 10px;
+    z-index: 1000;
+    .blinking {
+      top: 10px;
+      height: 65px;
+      width: 65px;
+      color: $colorWhite;
+      background-color: rgb(23, 22, 22);
+      @include text-al-c;
+      @include flex;
+      cursor: pointer;
+      .blinking-js {
+        @include alin-self;
+      }
+    }
+    .sticky-box {
+      height: 65px;
+      width: 65px;
+      background-color: $bgColorGreen;
+      color: $colorWhite;
+      @include text-al-c;
+      cursor: pointer;
+      opacity: 2;
+      transition: opacity 1s ease-in-out;
+      span {
+        animation: demoflash 4s ease infinite;
+      }
+      a img {
+        height: 26px;
+        width: 27px;
+      }
+      .text {
+        @include flex;
+        @include alin-self;
+        @include inline-blk;
+        font-size: 14px;
+        font-weight: 300;
+      }
+    }
+  }
+}

@@ -8,34 +8,28 @@
   width: 90%;
 }
 .flex {
-  display: flex;
+  @include flex;
 }
 .flex-dir-clm {
-  flex-direction: column;
+  @include flex-dir-clm;
 }
 .justify-csb {
-  justify-content: space-between;
+  @include justify-csb;
 }
 .justify-csa {
-  justify-content: space-around;
+  @include justify-csa;
 }
 .justify-cc {
-  justify-content: center;
+  @include justify-cc;
 }
 .justify-se {
-  justify-content: space-evenly;
-}
-.bg-color {
-  background-color: $colorWhite;
-}
-.bg-yellow {
-  background-color: $coloryellow;
+  @include justify-se;
 }
 .aline-items-c {
-  align-items: center;
+  @include aline-items-c;
 }
 .aline-items-fa {
-  align-items: flex-end;
+  @include aline-items-fa;
 }
 .relative {
   @include relative;
@@ -44,6 +38,12 @@
   @include absolute;
 }
 
+.bg-color {
+  background-color: $colorWhite;
+}
+.bg-yellow {
+  background-color: $coloryellow;
+}
 /*general classes end*/
 
 header {
@@ -107,11 +107,29 @@ header {
         font-weight: 500;
         border-right: 1px solid $colorWhite;
         gap: 10px;
+        @include relative;
         @include flex;
         @include flex-dir-clm;
         @include aline-items-c;
         span {
           padding: 5px;
+        }
+
+        .drop-down-wrapper {
+          @include hidden;
+          @include absolute;
+          left: 0;
+          top: 87px;
+          width: 300px;
+          height: 200px;
+          background-color: red;
+          z-index: 15;
+          transition-duration: 0.3s;
+        }
+        &:hover {
+          .drop-down-wrapper {
+            @include visible;
+          }
         }
       }
       li:last-child {
@@ -139,44 +157,6 @@ header {
     font-weight: 700;
     margin-bottom: 36px;
   }
-
-  .button-wrapper {
-    gap: 28px;
-    .animated-btn {
-      font-size: 14px;
-      font-weight: 600;
-      padding: 11px 30px;
-      border-radius: 45px;
-      border: none;
-      background-color: $coloryellow;
-      color: $colorWhite;
-    }
-    :hover {
-      background-color: $colorWhite;
-      color: $coloryellow;
-      transform: scale(1.03);
-      transition: all 0.1s ease;
-      border-radius: 45px;
-      cursor: pointer;
-    }
-    .see-collection {
-      background-color: $colorWhite;
-      color: $coloryellow;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 11px 30px;
-      border-radius: 45px;
-      border: none;
-    }
-    :hover {
-      background-color: $coloryellow;
-      color: $colorWhite;
-      transform: scale(1.03);
-      transition: all 0.2s ease;
-      border-radius: 45px;
-      cursor: pointer;
-    }
-  }
 }
 .main-section {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
@@ -187,7 +167,6 @@ header {
     width: 100%;
     height: 100%px;
     background-color: $colorBlue;
-
     transform: translateY(30px);
     border-radius: 20px;
 
@@ -363,72 +342,5 @@ header {
       border: none;
       border-radius: 80px;
     }
-  }
-}
-
-body {
-  height: 2000px; /* რომ გვქონდეს სქროლვის მაგალითი */
-  margin: 0;
-  font-family: sans-serif;
-}
-
-.sticky-wrapper {
-  position: fixed;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 1000;
-}
-
-.sticky-box {
-  background-color: #1a73e8;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-}
-
-body {
-  height: 2000px;
-  margin: 0;
-  font-family: sans-serif;
-}
-
-.sticky-wrapper {
-  position: fixed;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 1000;
-}
-
-.sticky-box {
-  height: 65px;
-
-  width: 65px;
-  background-color: #80b541;
-  color: white;
-  border-radius: 8px;
-  text-align: center;
-  cursor: pointer;
-  opacity: 2;
-  transition: opacity 1s ease-in-out;
-  a img {
-    height: 26px;
-    width: 27px;
-  }
-  .text{
-    @include inline-blk;
-
-    font-size: 14px;
-    font-weight: 300;
   }
 }
