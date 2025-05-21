@@ -1,4 +1,4 @@
-// @use "../abstracts/" as *;
+@use "../abstracts/index" as *;
 @use "../utilities/" as *;
 
 /*general classes start*/
@@ -26,7 +26,7 @@
   justify-content: space-evenly;
 }
 .bg-color {
-  background-color: $colorwhite;
+  background-color: $colorWhite;
 }
 .bg-yellow {
   background-color: $coloryellow;
@@ -38,10 +38,10 @@
   align-items: flex-end;
 }
 .relative {
-  position: relative;
+  @include relative;
 }
 .absolute {
-  position: absolute;
+  @include absolute;
 }
 
 /*general classes end*/
@@ -70,25 +70,23 @@ header {
     }
   }
   .cta-wrapper {
-    position: absolute;
     gap: 25px;
     .icon-with-badge {
-      position: relative;
+      @include relative;
       width: 20px;
       .badge {
         font-size: 12px;
-        height: 25px;
-        width: 20px;
+        width: 18px;
+        height: 18px;
         background-color: #333333;
-        color: aliceblue;
+        color: $colorWhite;
         border-radius: 50%;
-        display: inline-block;
+        @include inline-blk;
         text-align: center;
         align-content: center;
-        position: absolute;
-        top: 0;
-        right: -6px;
-        height: 20px;
+        @include absolute;
+        top: -10px;
+        right: -11px;
       }
     }
     .icon-with-badge img {
@@ -103,19 +101,22 @@ header {
     ul {
       gap: 8px;
       li {
+        padding: 10px 50px;
         color: $colorBlue;
-
         font-size: 14px;
         font-weight: 500;
-        border-right: 1px solid $colorwhite;
+        border-right: 1px solid $colorWhite;
+        gap: 10px;
         @include flex;
         @include flex-dir-clm;
         @include aline-items-c;
-        gap: 4px;
+        span {
+          padding: 5px;
+        }
       }
       li:last-child {
         padding: 15px 63px;
-        color: $colorwhite;
+        color: $colorWhite;
         border-radius: 3px 3px 0 0;
       }
     }
@@ -123,14 +124,14 @@ header {
 }
 
 .title-wrapper {
-  position: absolute;
+  @include absolute;
   color: $colorWhite;
   top: 52px;
   left: 50px;
   span {
     font-size: 12px;
     font-weight: 600;
-    display: inline-block;
+    @include inline-blk;
     margin-bottom: 5px;
   }
   h1 {
@@ -141,52 +142,57 @@ header {
 
   .button-wrapper {
     gap: 28px;
-    button {
+    .animated-btn {
       font-size: 14px;
       font-weight: 600;
       padding: 11px 30px;
       border-radius: 45px;
       border: none;
       background-color: $coloryellow;
-      color: $colorwhite;
+      color: $colorWhite;
     }
-    :last-child {
+    :hover {
       background-color: $colorWhite;
       color: $coloryellow;
+      transform: scale(1.03);
+      transition: all 0.1s ease;
+      border-radius: 45px;
+      cursor: pointer;
+    }
+    .see-collection {
+      background-color: $colorWhite;
+      color: $coloryellow;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 30px;
+      border-radius: 45px;
+      border: none;
+    }
+    :hover {
+      background-color: $coloryellow;
+      color: $colorWhite;
+      transform: scale(1.03);
+      transition: all 0.2s ease;
+      border-radius: 45px;
+      cursor: pointer;
     }
   }
-  // არ დამისრულებია
-  .animated-btn {
-    padding: 12px 24px;
-    margin: 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #333;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-
-  .animated-btn:active {
-    transform: scale(0.95);
-  }
-
-  // აქამდე
 }
 .main-section {
-  background-color: rgb(0 0 0 0);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  background-color: rgba(0, 0, 0, 0.037);
   height: 774px;
   .principal-bg {
     width: 100%;
     height: 100%px;
-    color: $colorblue;
+    background-color: $colorBlue;
 
     transform: translateY(30px);
     border-radius: 20px;
 
     .principal-picture {
-      position: relative;
+      @include relative;
       transform: translate(50%);
       z-index: 10;
       transform: translateY(38px);
@@ -195,17 +201,17 @@ header {
         width: 100%;
       }
       .ring-container {
-        position: absolute;
+        @include absolute;
         top: 42%;
         left: 70%;
       }
       .ring-container-desk {
-        position: absolute;
+        @include absolute;
         top: 70%;
         left: 42%;
       }
       .ring-container-chair {
-        position: absolute;
+        @include absolute;
         top: 66%;
         left: 84%;
       }
@@ -226,7 +232,7 @@ header {
       font-size: 48px;
       font-weight: 600;
       color: $coloryellow;
-      display: inline-block;
+      @include inline-blk;
       margin-bottom: 5px;
     }
     h2 {
@@ -241,17 +247,18 @@ header {
   gap: 104px;
   .realisation-product,
   .realisation-year {
-    position: relative;
+    @include relative;
     top: 50%;
     margin-right: 40px;
-    color: $colorblue;
+    color: $colorBlue;
 
     font-size: 24px;
     font-weight: 700;
     ::before {
       content: "";
-      position: absolute;
+      @include absolute;
       background: $coloryellow;
+      border-radius: 12px;
       width: 22px;
       height: 7px;
       top: 50%;
@@ -278,7 +285,7 @@ header {
     background-color: $colorWhiteBg;
     transform: scale(1.03);
     transition: all 0.3s ease;
-    border-radius: 6px;
+    border-radius: 32px;
     cursor: pointer;
   }
 }
@@ -300,6 +307,12 @@ header {
   h3 {
     font-size: 48px;
     font-weight: 700;
+    margin: 20px 0;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+  }
+  :hover {
+    transform: translateY(-6px);
   }
 }
 
@@ -327,7 +340,7 @@ header {
       font-weight: 600;
       color: $colorBlue;
       margin-bottom: 20px;
-      display: inline-block;
+      @include inline-blk;
     }
     h4 {
       font-size: 48px;
@@ -346,9 +359,76 @@ header {
       font-weight: 600;
       padding: 15px 35px;
       background: $coloryellow;
-      color: $colorwhite;
+      color: $colorWhite;
       border: none;
       border-radius: 80px;
     }
+  }
+}
+
+body {
+  height: 2000px; /* რომ გვქონდეს სქროლვის მაგალითი */
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.sticky-wrapper {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.sticky-box {
+  background-color: #1a73e8;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+body {
+  height: 2000px;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.sticky-wrapper {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.sticky-box {
+  height: 65px;
+
+  width: 65px;
+  background-color: #80b541;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 2;
+  transition: opacity 1s ease-in-out;
+  a img {
+    height: 26px;
+    width: 27px;
+  }
+  .text{
+    @include inline-blk;
+
+    font-size: 14px;
+    font-weight: 300;
   }
 }

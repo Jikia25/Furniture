@@ -45,3 +45,14 @@ buttons.forEach((btn) => {
     }
   });
 });
+
+
+const blinkingElement = document.querySelector('.blinking-js');
+
+let visible = true;
+
+setInterval(() => {
+  visible = !visible;
+  blinkingElement.style.opacity = visible ? '1' : '0';
+}, 1000);
+
