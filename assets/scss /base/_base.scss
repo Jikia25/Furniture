@@ -44,6 +44,9 @@
 .bg-yellow {
   background-color: $coloryellow;
 }
+.bg-white {
+  background-color: white;
+}
 /*general classes end*/
 
 header {
@@ -114,15 +117,66 @@ header {
         span {
           padding: 5px;
         }
-
         .drop-down-wrapper {
+          .drop-down-menu-wrapper {
+            padding: 40px 30px;
+            background: white;
+          }
+          .drop-down-navigation {
+            padding-right: 20px;
+
+            .drop-down-menu {
+              padding: 10px 0;
+              margin-bottom: 8;
+              @include flex;
+              flex-direction: row;
+              @include justify-csb;
+              img {
+                width: 12px;
+                height: 12px;
+              }
+            }
+          }
+          .recommend-wrapper {
+            padding: 40px 30px;
+            @include relative;
+            .recommend {
+              font-size: 12px;
+              font-weight: 600;
+              color: $colorBlue;
+              margin-bottom: 20px;
+              @include inline-blk;
+            }
+            h4 {
+              font-size: 30px;
+              font-weight: 600;
+              margin-bottom: 30px;
+              color: $colorBlue;
+            }
+            p {
+              min-width: 386px;
+              font-size: 16px;
+              font-weight: 400;
+              color: #333333;
+            }
+            .price {
+              @include inline-blk;
+              margin-top: 30px;
+            }
+            img {
+              width: 180px;
+              height: 180px;
+              @include absolute;
+              transform: translate(50%, -30%);
+              top: 50%;
+              right: 0;
+            }
+          }
           @include hidden;
           @include absolute;
           left: 0;
           top: 87px;
-          width: 300px;
-          height: 200px;
-          background-color: red;
+          background-color: $colorWhite;
           z-index: 15;
           transition-duration: 0.3s;
         }
@@ -132,7 +186,7 @@ header {
           }
         }
       }
-      li:last-child {
+      .star-child {
         padding: 15px 63px;
         color: $colorWhite;
         border-radius: 3px 3px 0 0;
