@@ -1,7 +1,6 @@
-
 function animateCounter(counter) {
   const target = +counter.getAttribute("data-target");
-  const speed = 100; 
+  const speed = 100;
 
   const updateCount = () => {
     const current = +counter.innerText;
@@ -9,7 +8,7 @@ function animateCounter(counter) {
 
     if (current < target) {
       counter.innerText = current + increment;
-      setTimeout(updateCount, 10); 
+      setTimeout(updateCount, 10);
     } else {
       counter.innerText = target;
     }
@@ -23,12 +22,12 @@ const observer = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         animateCounter(entry.target);
-        observer.unobserve(entry.target); 
+        observer.unobserve(entry.target);
       }
     });
   },
   {
-    threshold: 0.6, 
+    threshold: 0.6,
   }
 );
 
@@ -46,18 +45,11 @@ buttons.forEach((btn) => {
   });
 });
 
-
-const blinkingElement = document.querySelector('.blinking-js');
+const blinkingElement = document.querySelector(".blinking-js");
 
 let visible = true;
 
 setInterval(() => {
   visible = !visible;
-  blinkingElement.style.opacity = visible ? '1' : '0';
+  blinkingElement.style.opacity = visible ? "1" : "0";
 }, 1000);
-
-
-// გადართე body-ის კლასად dark ან წაშალე
-function toggleDarkMode() {
-  document.body.classList.toggle('dark');
-}

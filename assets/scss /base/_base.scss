@@ -50,7 +50,6 @@
 /*general classes end*/
 
 header {
-  
   .header-inner-wrapper {
     gap: 40px;
     padding-block: 24px;
@@ -180,7 +179,7 @@ header {
               transform: translate(50%, -28%);
               top: 70%;
               right: 0;
-              img{
+              img {
                 width: 180px;
               }
             }
@@ -189,14 +188,14 @@ header {
           top: 87px;
           background-color: $colorWhite;
           z-index: 15;
-          @include hidden;
           transition-duration: 0.3s;
+          @include hidden;
           @include absolute;
         }
         @include show-on-hover(".drop-down-wrapper");
       }
       .star-child {
-        @include button-hover;
+        @include mode-hover;
         padding: 15px 63px;
         color: $colorWhite;
         border-radius: 3px 3px 0 0;
@@ -246,6 +245,21 @@ header {
         @include absolute;
         top: 42%;
         left: 70%;
+        .progress-bar {
+          padding: 10px 30px 20px 30px;
+          background-color: $PureWhite;
+          border-radius: 20px;
+          width: 250px;
+          height: 250px;
+          display: none;
+          margin-bottom: 50%;
+        } 
+        &:hover{         
+          .progress-bar{
+            transform: scale(1.05);
+            display: block
+          }
+        }
       }
       .ring-container-desk {
         @include absolute;

@@ -86,19 +86,29 @@
     border-radius: 32px;
   }
 }
-
-//hjvjhj
-@mixin text-hover {
+@mixin mode-hover {
   transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $colorBlue;
+    color: $colorWhite;
+    transform: scale(1.03);
+  }
+}
+
+
+@mixin text-hover {
+  transition: all 0.2s ease;
   cursor: pointer;
 
   &:hover {
     background-color: inherit;
     color: $coloryellow;
-    transform: scale(1.03);
+    transform: scale(1.01);
   }
 }
-//jhjh
+
 
 
 @mixin link-hover {

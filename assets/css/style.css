@@ -269,23 +269,23 @@ header .navigation .navigation-element-wrapper .navigation-element {
 }
 header .navigation .navigation-element-wrapper .navigation-element span {
   padding: 5px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 header .navigation .navigation-element-wrapper .navigation-element span:hover {
   background-color: inherit;
   color: #ffb128;
-  transform: scale(1.03);
+  transform: scale(1.01);
 }
 header .navigation .navigation-element-wrapper .navigation-element .drop-down-wrapper {
   left: 0;
   top: 87px;
   background-color: #f5f5f5;
   z-index: 15;
+  transition-duration: 0.3s;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  transition-duration: 0.3s;
   position: absolute;
 }
 header .navigation .navigation-element-wrapper .navigation-element .drop-down-wrapper .drop-down-menu-wrapper {
@@ -299,7 +299,7 @@ header .navigation .navigation-element-wrapper .navigation-element .drop-down-wr
   gap: 45px;
   padding: 10px 0;
   border-bottom: 1px solid #f5f5f5;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -307,7 +307,7 @@ header .navigation .navigation-element-wrapper .navigation-element .drop-down-wr
 header .navigation .navigation-element-wrapper .navigation-element .drop-down-wrapper .drop-down-navigation .drop-down-menu:hover {
   background-color: inherit;
   color: #ffb128;
-  transform: scale(1.03);
+  transform: scale(1.01);
 }
 header .navigation .navigation-element-wrapper .navigation-element .drop-down-wrapper .drop-down-navigation .drop-down-menu span {
   display: inline-block;
@@ -375,7 +375,6 @@ header .navigation .navigation-element-wrapper .star-child:hover {
   background-color: #0b3954;
   color: #f5f5f5;
   transform: scale(1.03);
-  border-radius: 32px;
 }
 
 .title-wrapper {
@@ -422,6 +421,19 @@ header .navigation .navigation-element-wrapper .star-child:hover {
   position: absolute;
   top: 42%;
   left: 70%;
+}
+.main-section .principal-bg .principal-picture .ring-container .progress-bar {
+  padding: 10px 30px 20px 30px;
+  background-color: White;
+  border-radius: 20px;
+  width: 250px;
+  height: 250px;
+  display: none;
+  margin-bottom: 50%;
+}
+.main-section .principal-bg .principal-picture .ring-container:hover .progress-bar {
+  transform: scale(1.05);
+  display: block;
 }
 .main-section .principal-bg .principal-picture .ring-container-desk {
   position: absolute;
