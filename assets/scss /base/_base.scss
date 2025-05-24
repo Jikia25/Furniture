@@ -45,21 +45,22 @@
   background-color: $coloryellow;
 }
 .bg-white {
-  background-color: white;
+  background-color: $PureWhite;
 }
 /*general classes end*/
 
 header {
+  
   .header-inner-wrapper {
-    @include flex;
     gap: 40px;
     padding-block: 24px;
+    @include flex;
     .logo {
       font-size: 32px;
     }
 
     form {
-      border-color: #000;
+      border-color: $PureBlack;
       border-radius: 6px;
       padding: 10px 0px 10px 16px;
       gap: 12px;
@@ -81,29 +82,28 @@ header {
         font-size: 12px;
         width: 18px;
         height: 18px;
-        background-color: #333333;
+        background-color: $Charcoal;
         color: $colorWhite;
         border-radius: 50%;
-        @include inline-blk;
-        text-align: center;
-        align-content: center;
-        @include absolute;
         top: -10px;
         right: -11px;
+        @include center-text-and-content;
+        @include absolute;
+        @include inline-blk;
       }
     }
     .icon-with-badge img {
-      display: block;
+      @include display(block);
       width: 100%;
       height: 20px;
     }
   }
 
-  nav {
+  .navigation {
     text-transform: capitalize;
-    ul {
+    .navigation-element-wrapper {
       gap: 8px;
-      li {
+      .navigation-element {
         padding: 10px 50px;
         color: $colorBlue;
         font-size: 14px;
@@ -111,26 +111,32 @@ header {
         border-right: 1px solid $colorWhite;
         gap: 10px;
         @include relative;
-        @include flex;
         @include flex-dir-clm;
+        @include flex;
         @include aline-items-c;
         span {
           padding: 5px;
+          @include text-hover;
         }
         .drop-down-wrapper {
           .drop-down-menu-wrapper {
             padding: 40px 30px;
-            background: white;
+            background: $PureWhite;
           }
           .drop-down-navigation {
             padding-right: 20px;
 
             .drop-down-menu {
+              gap: 45px;
               padding: 10px 0;
-              margin-bottom: 8;
+              border-bottom: 1px solid $colorWhite;
+              @include text-hover;
               @include flex;
-              flex-direction: row;
               @include justify-csb;
+              span {
+                @include inline-blk;
+                font-size: 12px;
+              }
               img {
                 width: 12px;
                 height: 12px;
@@ -138,55 +144,59 @@ header {
             }
           }
           .recommend-wrapper {
+            box-shadow: $shadowInset;
             padding: 40px 30px;
             @include relative;
             .recommend {
               font-size: 12px;
               font-weight: 600;
               color: $colorBlue;
-              margin-bottom: 20px;
+              margin-top: 30px;
               @include inline-blk;
+              color: $bluePrimary;
             }
             h4 {
-              font-size: 30px;
-              font-weight: 600;
-              margin-bottom: 30px;
+              font-size: 28px;
+              font-weight: 500;
+              margin-top: 44px;
               color: $colorBlue;
             }
             p {
+              margin-top: 15px;
               min-width: 386px;
               font-size: 16px;
-              font-weight: 400;
-              color: #333333;
+              font-weight: 300;
+              color: $Charcoal;
             }
             .price {
               @include inline-blk;
-              margin-top: 30px;
+              font-size: 20px;
+              font-weight: 600;
+              margin-top: 60px;
             }
-            img {
-              width: 180px;
-              height: 180px;
+            .img-wrapper {
+              height: auto;
               @include absolute;
-              transform: translate(50%, -30%);
-              top: 50%;
+              transform: translate(50%, -28%);
+              top: 70%;
               right: 0;
+              img{
+                width: 180px;
+              }
             }
           }
-          @include hidden;
-          @include absolute;
           left: 0;
           top: 87px;
           background-color: $colorWhite;
           z-index: 15;
+          @include hidden;
           transition-duration: 0.3s;
+          @include absolute;
         }
-        &:hover {
-          .drop-down-wrapper {
-            @include visible;
-          }
-        }
+        @include show-on-hover(".drop-down-wrapper");
       }
       .star-child {
+        @include button-hover;
         padding: 15px 63px;
         color: $colorWhite;
         border-radius: 3px 3px 0 0;
@@ -203,8 +213,8 @@ header {
   span {
     font-size: 12px;
     font-weight: 600;
-    @include inline-blk;
     margin-bottom: 5px;
+    @include inline-blk;
   }
   h1 {
     font-size: 64px;
@@ -213,9 +223,8 @@ header {
   }
 }
 .main-section {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  background-color: rgba(0, 0, 0, 0.037);
+  box-shadow: $shadowInset;
+  background-color: $blar;
   height: 774px;
   .principal-bg {
     width: 100%;
@@ -312,27 +321,20 @@ header {
       color: $colorBlue;
       font-size: 20px;
       font-weight: 600;
+      @include link-hover;
     }
-  }
-  :hover {
-    background-color: $colorWhiteBg;
-    transform: scale(1.03);
-    transition: all 0.3s ease;
-    border-radius: 32px;
-    cursor: pointer;
   }
 }
 
 .main-category {
-  color: $colorWhite;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  @include background-cover-fixed;
   border-radius: 32px;
-  height: 600px;
-  width: 32%;
+  height: 700px;
+  width: 33%;
   padding-bottom: 70px;
   padding-left: 40px;
+  color: $PureWhite;
+
   span {
     font-size: 16px;
     font-weight: 400;
@@ -343,9 +345,7 @@ header {
     margin: 20px 0;
     transition: transform 0.2s ease;
     cursor: pointer;
-  }
-  :hover {
-    transform: translateY(-6px);
+    @include hover-move-up;
   }
 }
 
@@ -385,7 +385,7 @@ header {
       font-size: 16px;
       font-weight: 600;
       margin-bottom: 30px;
-      color: rgba(255, 255, 255, 0.1);
+      color: $white-faint;
     }
     button {
       font-size: 14px;
@@ -395,6 +395,7 @@ header {
       color: $colorWhite;
       border: none;
       border-radius: 80px;
+      @include button-hover;
     }
   }
 }

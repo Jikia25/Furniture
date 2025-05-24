@@ -1,3 +1,5 @@
+@use "../abstracts/variables" as *;
+
 @mixin container {
   max-width: 1240px;
   margin-inline: auto;
@@ -42,6 +44,9 @@
 @mixin inline-blk {
   display: inline-block;
 }
+@mixin display($type: block) {
+  display: $type;
+}
 @mixin position_fixed {
   position: fixed;
 }
@@ -51,7 +56,7 @@
 @mixin alin-self {
   align-self: center;
 }
-@mixin hidden{
+@mixin hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
@@ -61,3 +66,68 @@
   opacity: 1;
   pointer-events: all;
 }
+@mixin hover-move-up($distance: -6px) {
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY($distance);
+  }
+}
+
+@mixin button-hover {
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $colorBlue;
+    color: $colorWhite;
+    transform: scale(1.03);
+    border-radius: 32px;
+  }
+}
+
+//hjvjhj
+@mixin text-hover {
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: inherit;
+    color: $coloryellow;
+    transform: scale(1.03);
+  }
+}
+//jhjh
+
+
+@mixin link-hover {
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $colorWhiteBg;
+    transform: scale(1.03);
+    border-radius: 32px;
+  }
+}
+@mixin show-on-hover($child-selector) {
+  &:hover {
+    #{$child-selector} {
+      @include visible;
+    }
+  }
+}
+
+@mixin background-cover-fixed {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@mixin center-text-and-content {
+  text-align: center;
+  align-content: center;
+}
+

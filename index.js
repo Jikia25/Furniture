@@ -56,3 +56,8 @@ setInterval(() => {
   blinkingElement.style.opacity = visible ? '1' : '0';
 }, 1000);
 
+
+// გადართე body-ის კლასად dark ან წაშალე
+function toggleDarkMode() {
+  document.body.classList.toggle('dark');
+}
