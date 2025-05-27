@@ -103,7 +103,7 @@ header {
     .navigation-element-wrapper {
       gap: 8px;
       .navigation-element {
-        padding: 10px 50px;
+        padding: 10px 30px;
         color: $colorBlue;
         font-size: 14px;
         font-weight: 500;
@@ -113,6 +113,9 @@ header {
         @include flex-dir-clm;
         @include flex;
         @include aline-items-c;
+        @media (max-width: 1366px) {
+          padding: 15px 30px;
+        }
         span {
           padding: 5px;
           @include text-hover;
@@ -196,9 +199,12 @@ header {
       }
       .star-child {
         @include mode-hover;
-        padding: 15px 63px;
+        padding: 15px 62px;
         color: $colorWhite;
         border-radius: 3px 3px 0 0;
+        @media (max-width: 1366px) {
+          padding: 15px 40px;
+        }
       }
     }
   }
@@ -227,7 +233,7 @@ header {
   height: 774px;
   .principal-bg {
     width: 100%;
-    height: 100%px;
+    height: auto;
     background-color: $colorBlue;
     transform: translateY(30px);
     border-radius: 20px;
@@ -253,11 +259,11 @@ header {
           height: 250px;
           display: none;
           margin-bottom: 50%;
-        } 
-        &:hover{         
-          .progress-bar{
+        }
+        &:hover {
+          .progress-bar {
             transform: scale(1.05);
-            display: block
+            display: block;
           }
         }
       }
@@ -325,6 +331,10 @@ header {
 }
 .category-wrapper {
   margin-bottom: 100px;
+  @media (max-width: 1366px) {
+    flex-wrap: wrap;
+    @include justify-csa;
+  }
   li {
     a {
       text-decoration: solid;
@@ -336,6 +346,10 @@ header {
       font-size: 20px;
       font-weight: 600;
       @include link-hover;
+      @media (max-width: 1366px) {
+        padding: 25px 34px;
+        gap: 22px;
+      }
     }
   }
 }
@@ -378,7 +392,13 @@ header {
   height: 7px;
 }
 .decor-wrapper {
+
   margin-top: 100px;
+  img {
+    @media (max-width: 1366px) {
+     width: 600px;
+    }
+  }
   .get-ready {
     padding-left: 85px;
 
