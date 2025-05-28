@@ -1,3 +1,26 @@
+let darkIsActive =
+  localStorage.getItem("darkIsActive") !== null
+    ? localStorage.getItem("darkIsActive")
+    : false;
+console.log(darkIsActive);
+const bodyTag = document.body;
+if (darkIsActive) {
+  bodyTag.classList.add("bg-dark-mode");
+} else {
+  bodyTag.classList.remove("bg-dark-mode");
+}
+
+const darkModeTrigger = document.querySelector("#dark-mode-trigger");
+darkModeTrigger.addEventListener("change", (e) => {
+  darkIsActive = e.target.checked;
+  localStorage.setItem("darkIsActive", darkIsActive);
+  if (darkIsActive) {
+    bodyTag.classList.add("bg-dark-mode");
+  } else {
+    bodyTag.classList.remove("bg-dark-mode");
+  }
+});
+
 function animateCounter(counter) {
   const target = +counter.getAttribute("data-target");
   const speed = 100;

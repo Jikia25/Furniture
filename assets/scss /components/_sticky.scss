@@ -3,6 +3,7 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  transition-duration: .3s;
   .sticky-wrapper {
     @include position_fixed;
     right: 1px;
