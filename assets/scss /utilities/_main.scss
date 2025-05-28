@@ -141,3 +141,8 @@
   align-content: center;
 }
 
+@mixin media($size) {
+  @media (max-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}

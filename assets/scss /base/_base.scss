@@ -113,7 +113,7 @@ header {
         @include flex-dir-clm;
         @include flex;
         @include aline-items-c;
-        @media (max-width: 1366px) {
+        @include media(xl) {
           padding: 15px 30px;
         }
         span {
@@ -222,7 +222,7 @@ header {
     @include inline-blk;
   }
   h1 {
-    font-size: 64px;
+    font-size: clamp(28px, 3.5vw, 4.5rem);
     font-weight: 700;
     margin-bottom: 36px;
   }
@@ -231,6 +231,12 @@ header {
   box-shadow: $shadowInset;
   background-color: $blar;
   height: 774px;
+  @include media(xl) {
+    box-shadow: unset;
+    background-color: transparent;
+    height: auto;
+  }
+
   .principal-bg {
     width: 100%;
     height: auto;
@@ -331,10 +337,12 @@ header {
 }
 .category-wrapper {
   margin-bottom: 100px;
-  @media (max-width: 1366px) {
+
+  @include media(xl){
     flex-wrap: wrap;
     @include justify-csa;
   }
+  
   li {
     a {
       text-decoration: solid;
@@ -392,11 +400,10 @@ header {
   height: 7px;
 }
 .decor-wrapper {
-
   margin-top: 100px;
   img {
     @media (max-width: 1366px) {
-     width: 600px;
+      width: 600px;
     }
   }
   .get-ready {
