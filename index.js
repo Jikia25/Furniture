@@ -1,24 +1,31 @@
-let darkIsActive =
-  localStorage.getItem("darkIsActive") !== null
-    ? localStorage.getItem("darkIsActive")
-    : false;
-console.log(darkIsActive);
-const bodyTag = document.body;
-if (darkIsActive) {
-  bodyTag.classList.add("bg-dark-mode");
-} else {
-  bodyTag.classList.remove("bg-dark-mode");
-}
+// const first = {name: "kristi"}
+// const second = {name: "kristi"}
 
 const darkModeTrigger = document.querySelector("#dark-mode-trigger");
-darkModeTrigger.addEventListener("change", (e) => {
-  darkIsActive = e.target.checked;
-  localStorage.setItem("darkIsActive", darkIsActive);
-  if (darkIsActive) {
+const bodyTag = document.body;
+// სტეიტს ვკითხულობ ლოკალური საცავიდან
+let darkIsActive =
+  localStorage.getItem("darkIsActive") !== null
+    ? JSON.parse(localStorage.getItem("darkIsActive"))
+    : false;
+
+const applyDarkMode = (isDark) => {
+  if (isDark) {
     bodyTag.classList.add("bg-dark-mode");
+    darkModeTrigger.checked = isDark;
   } else {
     bodyTag.classList.remove("bg-dark-mode");
   }
+};
+
+applyDarkMode(darkIsActive);
+
+darkModeTrigger.addEventListener("change", (e) => {
+  darkIsActive = e.target.checked; // სტეიტის სინქრონიზაცია
+  console.log(e.target.checked);
+  localStorage.setItem("darkIsActive", JSON.stringify(darkIsActive));
+
+  applyDarkMode(darkIsActive);
 });
 
 function animateCounter(counter) {
